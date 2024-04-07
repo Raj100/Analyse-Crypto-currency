@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="flex justify-between fixed sticky top-0 items-center bg-white w-full gap-1">
+      <header className="flex justify-between fixed sticky top-0 items-center bg-white w-full gap-1 z-[1000]">
         <div className="flex sticky top-0  pt-5 pb-[19px] font-inter justify-between items-center w-full bg-white px-1 lg:px-6">
           <div className="flex gap-2 items-center">
             <div className="flex gap-2 items-center font-medium flex-col sm:flex-row">
