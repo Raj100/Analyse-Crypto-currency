@@ -1,22 +1,24 @@
-"use client";
 import React, { useState } from "react";
-import Searchicon from "../../assests/Icons/Search-icon.svg";
+import Searchicon from "../../assets/Icons/Search-icon.svg";
 import Image from "next/image";
-import filterlines from "../../assests/Icons/filter-lines.svg";
-import cloud from "../../assests/Icons/download-cloud-02.svg";
-import plus from "../../assests/Icons/plus.svg";
-import trash from "../../assests/Icons/trash-01.svg";
+import filterlines from "../../assets/Icons/filter-lines.svg";
+import cloud from "../../assets/Icons/download-cloud-02.svg";
+import plus from "../../assets/Icons/plus.svg";
+import trash from "../../assets/Icons/trash-01.svg";
 import { useAppContext } from "../../context/AppContext";
 
 const Navbar = () => {
-  let [menu,setmenu]=useState(false);
+  let [menu, setMenu] = useState(false);
   const { searchContent, setSearchContent } = useAppContext();
+  const { Delete, setDelete } = useAppContext();
+
   const handleSearch = (e) => {
     setSearchContent(e.target.value);
   };
+
   return (
     <>
-      <header className="flex justify-between sticky top-0 items-center bg-white w-full gap-1">
+      <header className="flex justify-between fixed sticky top-0 items-center bg-white w-full gap-1">
         <div className="flex sticky top-0  pt-5 pb-[19px] font-inter justify-between items-center w-full bg-white px-1 lg:px-6">
           <div className="flex gap-2 items-center">
             <div className="flex gap-2 items-center font-medium flex-col sm:flex-row">
@@ -25,11 +27,11 @@ const Navbar = () => {
                 Label text or value
               </div>
             </div>
-            <div className="flex pl-2 p-1 justify-center gap-2 items-center shadow-[0_2px_6px_1px_rgba(0,0,0,0.15)] rounded lg:w-[519px]">
+            <div className="flex pl-2 p-1 justify-center gap-2 items-center shadow-[0_2px_6px_1px_rgba(0,0,0,0.15)] rounded lg:w-[519px] pr-2">
               <Image
                 src={Searchicon}
                 alt="Search"
-                className="s"
+                className=""
                 width={16}
                 height={16}
               ></Image>
@@ -45,7 +47,12 @@ const Navbar = () => {
 
           <div className="hidden md:flex gap-4 items-center ">
             <div className="flex items-center">
-              <div className="flex px-4 py-[10px] gap-2">
+              <div
+                className="flex px-4 py-[10px] gap-2 cursor-pointer"
+                onClick={(e) => {
+                  setDelete(!Delete);
+                }}
+              >
                 <Image src={trash} alt="filter" />
                 Delete
               </div>
@@ -64,24 +71,54 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className=" text-lg md:hidden p-1 sm:p-8 " onClick={()=>{setmenu(!menu);}}>
-          <i className={`fa-solid ${menu ? "fa-xmark" :"fa-bars-staggered"}`}></i>
+        <div
+          className={`text-lg md:hidden p-1 sm:p-8 z-50`}
+          onClick={() => {
+            setMenu(!menu);
+          }}
+        >
+          <i
+            className={`fa-solid ${menu ? "fa-xmark" : "fa-bars-staggered"}`}
+          ></i>
         </div>
 
-        <div className={`bg-white gap-2 p-2 flex flex-col w-full fixed top-20 transform duration-150 ${menu?"":"-translate-y-72"} `}>
-          <div className={`flex px-4 py-[10px] gap-2 transform duration-300 ${menu?"":"-translate-y-72"} `} >
-              <Image src={trash} alt="filter" />
-              Delete
-            </div>
-            <div className={`flex px-4 py-[10px] gap-2  transform duration-[450ms] ${menu?"":"-translate-y-72"} `}>
-              <Image src={filterlines} alt="filter" />
-              Filters
-            </div>
-          <div className={`flex px-4 py-[10px] gap-2 border rounded-lg  transform duration-[600ms] ${menu?"":"-translate-y-72"} `}>
+        <div
+          className={`bg-white gap-2 p-2 flex flex-col w-full fixed top-24 transform duration-150  z-50 ${
+            menu ? "" : "-translate-y-96"
+          } `}
+        >
+          <div
+            className={`flex bg-white px-4 py-[10px] gap-2 transform duration-300 ${
+              menu ? "" : "-translate-y-72"
+            } `}
+            onClick={() => {
+              setDelete(!Delete);
+            }}
+          >
+            <Image src={trash} alt="filter" />
+            Delete
+          </div>
+          <div
+            className={`flex  bg-white px-4 py-[10px] gap-2  transform duration-[450ms] ${
+              menu ? "" : "-translate-y-72"
+            } `}
+          >
+            <Image src={filterlines} alt="filter" />
+            Filters
+          </div>
+          <div
+            className={`flex  bg-white px-4 py-[10px] gap-2 border rounded-lg  transform duration-[600ms] ${
+              menu ? "" : "-translate-y-72"
+            } `}
+          >
             <Image src={cloud} alt="filter" />
             Export
           </div>
-          <div className={`flex px-4 py-[10px] gap-2 bg-primary rounded-lg text-white  transform duration-[750ms] ${menu?"":"-translate-y-72"} `}>
+          <div
+            className={`flex px-4  bg-white py-[10px] gap-2 bg-primary rounded-lg text-white  transform duration-[750ms] ${
+              menu ? "" : "-translate-y-72"
+            } `}
+          >
             <Image src={plus} alt="filter" />
             Add new CTA
           </div>

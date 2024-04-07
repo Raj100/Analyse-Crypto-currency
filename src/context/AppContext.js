@@ -8,10 +8,11 @@ export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [searchContent, setSearchContent] = useState('');
+  const [Delete, setDelete] = useState(false);
 
 
   return (
-    <AppContext.Provider value={{ searchContent, setSearchContent }}>
+    <AppContext.Provider value={{ searchContent, setSearchContent,Delete ,setDelete}}>
       {children}
     </AppContext.Provider>
   );

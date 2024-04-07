@@ -10,6 +10,12 @@ const Loader = () => {
       </div>
       <div className="loading h-11 w-full bg-gray-200 overflow-hidden relative">
       </div>
+      <div className="loading h-11 w-full bg-gray-200 overflow-hidden relative">
+      </div>
+      <div className="loading h-11 w-full bg-gray-200 overflow-hidden relative">
+      </div>
+      <div className="loading h-11 w-full bg-gray-200 overflow-hidden relative">
+      </div>
     </div>
     </>
   )
