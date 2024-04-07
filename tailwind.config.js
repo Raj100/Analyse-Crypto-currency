@@ -6,6 +6,17 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      'sm': '500px',
+
+      'md': '768px',
+
+      'lg': '1024px',
+
+      'xl': '1280px',
+
+      '2xl': '1536px',
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -16,14 +27,14 @@ module.exports = {
         "bluebg": "#F7FAFF",
         "primary": "#0070FF",
         "lightgray":"#667085",
-        "lightgraybg":"#EAECF0",
+        "lightgraybg":"#F7FAFF",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
       boxShadow: {
         'custom': '0 2px 6px 1px rgba(0, 0, 0, 0.15)',
-      }
+      },
     },
   },
   plugins: [],
