@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+#Features
+- pagiantion
+- Fetch data from API
+- Sorting on clicking headers
+- Filtering through Search using Appcontext to share states between components
+- Skelton Loader
+- Delete Element from DOM
+- Responsive and Readable Table
+
 ## Getting Started
 
 First, run the development server:
