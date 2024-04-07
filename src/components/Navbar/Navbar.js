@@ -115,7 +115,7 @@ const Navbar = () => {
             Export
           </div>
           <div
-            className={`flex px-4  bg-white py-[10px] gap-2 bg-primary rounded-lg text-white  transform duration-[750ms] ${
+            className={`flex px-4 z-10 py-[10px] gap-2 bg-primary rounded-lg text-white  transform duration-[750ms] ${
               menu ? "" : "-translate-y-72"
             } `}
           >
